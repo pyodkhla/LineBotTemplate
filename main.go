@@ -52,6 +52,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
+				log.Println("===== " + message.Text + " =====")
 				mukSeaw(event.ReplyToken, message.Text)
 				/*if message.Text == "Hi" {
 					if _, err = bot.ReplyMessage(event.ReplyToken,
